@@ -15,7 +15,8 @@ Ten szablon jest dla studentow, ktorzy chca pisac prace inzynierska w Markdown i
 - `metadata.yaml.example` - przykladowe metadane strony tytulowej (skopiuj do `metadata.yaml` i uzupelnij).
 - `chapters-example/` - neutralne przykladowe rozdzialy, zeby wystartowac bez pustej strony.
 - `templates/` - szablony LaTeX odpowiadajace wymaganiom formatowania.
-- `bibliography/references.bib` - przykladowa bibliografia do podmiany na Twoja.
+- `bibliography/references.bib` - przykladowa bibliografia (publiczny wzor).
+- `bibliography/references.private.bib` - Twoje zrodla (plik ignorowany przez Git).
 - `instrukcja.md` - uniwersalny przewodnik jak pisac prace i jak uzywac szablonu.
 
 ## Szybki start (pierwsze uruchomienie)
@@ -39,7 +40,7 @@ Domyslny wynik builda: `output/praca_inz.pdf`.
 
 - Edytuj rozdzialy w `chapters/` (pliki sortuja sie alfabetycznie po nazwie).
 - Uzupelnij dane w `metadata.yaml` (autor, promotor, tytul itd.).
-- Dodawaj zrodla do `bibliography/references.bib` i cytuj je w tekscie przez `[@klucz]`.
+- Dodawaj zrodla do `bibliography/references.private.bib` i cytuj je w tekscie przez `[@klucz]`.
 - Pelne wytyczne i przyklady skladni sa w `instrukcja.md`.
 
 ## Kompilacja bez Makefile
@@ -52,5 +53,5 @@ pandoc --metadata-file=metadata.yaml --template=templates/dsw-thesis.latex --csl
 
 ## Bibliografia
 
-W repo jest przykladowy plik `bibliography/references.bib` z neutralnymi wpisami.
-Zastap go swoimi zrodlami lub rozszerzaj o nowe wpisy zgodnie z `instrukcja.md`.
+Publiczny przyklad jest w `bibliography/references.bib`.
+Twoje prywatne zrodla wpisuj do `bibliography/references.private.bib` (plik jest w `.gitignore`).

@@ -37,7 +37,8 @@ Ten plik opisuje uniwersalny sposob pracy z szablonem. Jest niezalezny od tematu
 
 ## Cytowania i bibliografia
 
-- Bibliografia jest w `bibliography/references.bib`.
+- Bibliografia jest w `bibliography/references.private.bib` (plik prywatny, ignorowany przez Git).
+- Publiczny przyklad zostaw w `bibliography/references.bib`.
 - Cytuj w tekscie przez `[@klucz]`.
 
 Przyklady:

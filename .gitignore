@@ -14,8 +14,11 @@ output/
 # Private/sensitive local content
 metadata.yaml
 chapters/
+bibliography/references.private.bib
 GUIDE.md
 guide.md
+
+assets/dsw_logo.jpg
 
 # Editors/OS
 .obsidian/
