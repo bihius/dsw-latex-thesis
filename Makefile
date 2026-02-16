@@ -23,14 +23,12 @@ METADATA   := metadata.yaml
 TEMPLATE   := templates/dsw-thesis.latex
 TITLEPAGE  := templates/titlepage.latex
 CSL        := csl/dsw-footnote.csl
-BIB        := bibliography/references.bib
 
 # --- Pandoc Common Flags ---
 PANDOC_FLAGS := \
 	--metadata-file=$(METADATA) \
 	--template=$(TEMPLATE) \
 	--csl=$(CSL) \
-	--bibliography=$(BIB) \
 	--pdf-engine=xelatex \
 	--citeproc \
 	--number-sections \
@@ -48,7 +46,7 @@ export PATH := /Library/TeX/texbin:$(PATH)
 ## Build the PDF thesis
 all: $(OUTPUT_PDF)
 
-$(OUTPUT_PDF): $(CHAPTERS) $(METADATA) $(TEMPLATE) $(TITLEPAGE) $(CSL) $(BIB) | $(OUTPUT_DIR)
+$(OUTPUT_PDF): $(CHAPTERS) $(METADATA) $(TEMPLATE) $(TITLEPAGE) $(CSL) | $(OUTPUT_DIR)
 	@echo "Building PDF..."
 	$(PANDOC) $(PANDOC_FLAGS) \
 		-o $@ \
@@ -60,7 +58,7 @@ $(OUTPUT_DIR):
 	mkdir -p $(OUTPUT_DIR)
 
 ## Generate intermediate .tex for debugging
-debug: $(CHAPTERS) $(METADATA) $(TEMPLATE) $(TITLEPAGE) $(CSL) $(BIB) | $(OUTPUT_DIR)
+debug: $(CHAPTERS) $(METADATA) $(TEMPLATE) $(TITLEPAGE) $(CSL) | $(OUTPUT_DIR)
 	@echo "Generating .tex file..."
 	$(PANDOC) $(PANDOC_FLAGS) \
 		-s \
@@ -94,7 +92,7 @@ wordcount:
 ## Validate that pandoc can parse the files
 check:
 	@echo "Checking pandoc can parse all chapters..."
-	@$(PANDOC) --metadata-file=$(METADATA) --csl=$(CSL) --bibliography=$(BIB) \
+	@$(PANDOC) --metadata-file=$(METADATA) --csl=$(CSL) \
 		--citeproc -t plain $(CHAPTERS) > /dev/null 2>&1 \
 		&& echo "OK: All chapters parse successfully." \
 		|| echo "ERROR: Parsing failed. Run 'make debug' to inspect."

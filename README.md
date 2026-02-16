@@ -48,10 +48,11 @@ Domyslny wynik builda: `output/praca_inz.pdf`.
 Jesli nie chcesz uzywac `make`, mozesz budowac bezposrednio:
 
 ```bash
-pandoc --metadata-file=metadata.yaml --template=templates/dsw-thesis.latex --csl=csl/dsw-footnote.csl --bibliography=bibliography/references.bib --pdf-engine=xelatex --citeproc --number-sections --resource-path=.:assets -o output/praca_inz.pdf chapters/*.md
+pandoc --metadata-file=metadata.yaml --template=templates/dsw-thesis.latex --csl=csl/dsw-footnote.csl --pdf-engine=xelatex --citeproc --number-sections --resource-path=.:assets -o output/praca_inz.pdf chapters/*.md
 ```
 
 ## Bibliografia
 
 Publiczny przyklad jest w `bibliography/references.bib`.
 Twoje prywatne zrodla wpisuj do `bibliography/references.private.bib` (plik jest w `.gitignore`).
+Makefile korzysta z ustawien w `metadata.yaml`, wiec nie musisz zmieniac zadnych flag bibliografii.
