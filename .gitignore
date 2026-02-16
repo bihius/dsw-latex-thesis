@@ -1,0 +1,16 @@
+# Build outputs
+output/
+*.pdf
+*.docx
+*.html
+*.tex
+!output/.gitkeep
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Temp files
+*.tmp
+*~
+.*.swp

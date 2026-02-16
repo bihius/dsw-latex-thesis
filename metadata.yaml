@@ -1,0 +1,78 @@
+---
+# =============================================================================
+# DSW Thesis Metadata & Pandoc Configuration
+# =============================================================================
+# Praca projektowa (inżynierska) - Uniwersytet Dolnośląski DSW we Wrocławiu
+# Build: pandoc --defaults=metadata.yaml chapters/*.md -o output/praca_inz.pdf
+# =============================================================================
+
+# --- Title Page Information ---
+title: Projekt i implementacja self-hosted WAF z HAProxy i OWASP Coraza z panelem zarządzania politykami
+author: "Imię Nazwisko"
+student-id: "52703"
+supervisor: "mgr inż. Imię Nazwisko"
+university: "Uniwersytet Dolnośląski DSW we Wrocławiu"
+faculty: "Wydział Studiów Stosowanych"
+degree-level: "studia pierwszego stopnia"
+field: "Informatyka"
+specialization: "Inżynier aplikacji i systemów chmurowych"
+work-type: "Praca inżynierska"
+city-year: "Wrocław 2026"
+
+# --- Language ---
+lang: pl-PL
+
+# --- Document Class ---
+documentclass: article
+classoption:
+  - a4paper
+  - twoside
+  - 12pt
+
+# --- Page Layout (DSW requirements: all margins 2.5cm) ---
+geometry:
+  - top=2.5cm
+  - bottom=2.5cm
+  - left=2.5cm
+  - right=2.5cm
+
+# --- Typography ---
+mainfont: "Times New Roman"
+mainfontoptions:
+  - Ligatures=TeX
+fontsize: 12pt
+# Word-style 1.5 spacing for 12pt text (do not use 1.5 here; that's too loose in LaTeX)
+linestretch: 1.25
+
+# --- Paragraph Formatting ---
+indent: true
+
+# --- PDF Engine ---
+pdf-engine: xelatex
+
+# --- Template ---
+template: templates/dsw-thesis.latex
+
+# --- Bibliography ---
+bibliography: bibliography/references.bib
+csl: csl/dsw-footnote.csl
+link-citations: false
+nocite: "@*"
+
+# --- Section Numbering ---
+numbersections: true
+secnumdepth: 3
+
+# --- Table of Contents ---
+toc: true
+toc-depth: 3
+
+# --- Lists of Figures/Tables ---
+lof: false
+lot: false
+
+# --- Pandoc Filters ---
+citeproc: true
+
+# --- Output ---
+output-file: output/praca_inz.pdf
