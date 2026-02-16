@@ -1,0 +1,47 @@
+---
+title: "Tytul Przykladowej Pracy Inzynierskiej"
+author: "Jan Kowalski"
+student-id: "12345"
+supervisor: "dr Imie Nazwisko"
+university: "Uniwersytet Dolnoslaski DSW we Wroclawiu"
+faculty: "Wydzial Studiow Stosowanych"
+degree-level: "studia pierwszego stopnia"
+field: "Informatyka"
+specialization: "Inzynier aplikacji i systemow chmurowych"
+work-type: "Praca inzynierska"
+city-year: "Wroclaw 2026"
+
+lang: pl-PL
+documentclass: article
+classoption:
+  - a4paper
+  - twoside
+  - 12pt
+
+geometry:
+  - top=2.5cm
+  - bottom=2.5cm
+  - left=2.5cm
+  - right=2.5cm
+
+mainfont: "Times New Roman"
+mainfontoptions:
+  - Ligatures=TeX
+fontsize: 12pt
+linestretch: 1.25
+indent: true
+pdf-engine: xelatex
+template: templates/dsw-thesis.latex
+
+bibliography: bibliography/references.bib
+csl: csl/dsw-footnote.csl
+link-citations: false
+nocite: "@*"
+
+numbersections: true
+secnumdepth: 3
+toc: true
+toc-depth: 3
+lof: false
+lot: false
+citeproc: true

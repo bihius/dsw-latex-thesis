@@ -1,52 +1,64 @@
-# Praca Inżynierska - Guard Proxy
+# Szablon pracy inzynierskiej DSW (wersja robocza)
 
-Osobne repozytorium git dla tekstu pracy inżynierskiej.
+To repozytorium zawiera **roboczy** szablon pracy inzynierskiej przygotowany dla Uniwersytetu Dolnoslaskiego DSW we Wroclawiu.
 
-## Struktura
+Uwaga: ten szablon **nie jest jeszcze oficjalnie zatwierdzonym wzorem** uczelni. Traktuj go jako punkt startowy i zawsze porownuj z aktualnymi wymaganiami promotora oraz wytycznymi wydzialu.
 
-- `chapters/` - rozdziały pracy (markdown)
-- `bibliography/` - bibliografia (BibTeX)
-- `templates/` - szablony LaTeX/Pandoc
-- `output/` - wygenerowane pliki (PDF/DOCX) - nie commitowane
+## Co jest publiczne
 
-## Workflow z Obsidian
+- `templates/` - szablony LaTeX
+- `csl/` - styl cytowan
+- `bibliography/` - przykladowa bibliografia
+- `chapters-example/` - przykladowe rozdzialy
+- `metadata.yaml.example` - przykladowe metadane
+- `thesis.example.md` - scalony przyklad tresci
 
-### Instalacja pluginu Obsidian Git
+## Co jest prywatne (ignorowane przez git)
 
-1. W Obsidian: Settings → Community plugins → Browse
-2. Szukaj "Obsidian Git"
-3. Install & Enable
+- `metadata.yaml` - dane autora i pracy
+- `chapters/` - Twoje wlasne rozdzialy
+- `GUIDE.md` / `guide.md`
+- `output/` oraz pliki pomocnicze builda
 
-### Konfiguracja auto-commitów
+## Wymagania
 
-Settings → Obsidian Git:
-- **Auto-commit**: Enable
-- **Commit message**: `docs: auto-commit {{date}}`
-- **Auto-commit interval**: 10 minutes (lub według preferencji)
-- **Auto pull interval**: 5 minutes
-- **Auto backup after file change**: Enable (opcjonalnie)
+- `pandoc`
+- TeX Live / MacTeX z `xelatex`
+- opcjonalnie `make`
 
-### Komendy (Cmd+P)
-
-- `Obsidian Git: Commit all changes` - ręczny commit
-- `Obsidian Git: Push` - wyślij na remote
-- `Obsidian Git: Pull` - pobierz zmiany
-
-## Remote backup (opcjonalnie)
-
-Aby backupować na GitHub/GitLab:
+## Szybki start
 
 ```bash
-cd thesis
-git remote add origin git@github.com:twoj-user/thesis-backup.git
-git branch -M main
-git push -u origin main
+cp metadata.yaml.example metadata.yaml
+mkdir -p chapters
+cp chapters-example/*.md chapters/
+make
 ```
 
-## Build
+Domyslny wynik builda: `output/praca_inz.pdf`.
+
+## Kompilacja przykladu do pliku glównego repo
 
 ```bash
-make pdf    # generuje PDF
-make docx   # generuje DOCX
-make all    # oba formaty
+pandoc \
+  --metadata-file=metadata.yaml.example \
+  --template=templates/dsw-thesis.latex \
+  --csl=csl/dsw-footnote.csl \
+  --bibliography=bibliography/references.bib \
+  --pdf-engine=xelatex \
+  --citeproc \
+  --number-sections \
+  --resource-path=.:assets \
+  -o thesis.example.pdf \
+  chapters-example/*.md
 ```
+
+W tym srodowisku nie bylo dostepnego `pandoc`, dlatego dolaczony jest plik `thesis.example.md` jako gotowy przyklad tresci.
+
+## Notatka praktyczna
+
+Ten projekt ma sluzyc jako baza edukacyjna dla studentów. Przed zlozeniem pracy sprawdz u promotora:
+
+- zgodnosc strony tytulowej,
+- format przypisów i bibliografii,
+- wymagania redakcyjne dla Twojego kierunku.

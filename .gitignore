@@ -1,16 +1,25 @@
 # Build outputs
 output/
-*.pdf
+*.aux
+*.out
+*.toc
+*.log
+*.tex
 *.docx
 *.html
-*.tex
-!output/.gitkeep
 
-# OS files
+# Public example artifact
+!thesis.example.pdf
+
+# Private/sensitive local content
+metadata.yaml
+chapters/
+GUIDE.md
+guide.md
+
+# Editors/OS
+.obsidian/
 .DS_Store
 Thumbs.db
-
-# Temp files
-*.tmp
+*.swp
 *~
-.*.swp
