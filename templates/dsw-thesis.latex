@@ -39,6 +39,10 @@
 % Academic default: no extra paragraph gap (indent handles paragraph separation)
 \setlength{\parskip}{0pt}
 
+% --- List indentation: align with paragraph text (DSW has no explicit list spec) ---
+\usepackage{enumitem}
+\setlist{leftmargin=1.25cm, itemsep=0pt, parsep=0pt, topsep=4pt}
+
 % --- NO Hyphenation (DSW requirement: wyłączone dzielenie wyrazów) ---
 \usepackage[none]{hyphenat}
 \sloppy
@@ -267,6 +271,9 @@
 % =============================================================================
 % DOCUMENT BODY
 % =============================================================================
+
+% Required by pandoc for compact lists
+\providecommand{\tightlist}{\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
 
 \begin{document}
 

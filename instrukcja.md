@@ -48,6 +48,24 @@ Opis metody X oparto o[@example-article].
 Wedlug dokumentacji producenta[@example-website, s. 12] ...
 ```
 
+## Przypisy dolne i slowniczek pojec
+
+Przypisow dolnych (na dole strony) uzywaj do definicji trudnych pojec, skrotow lub komentarzy uzupelniajacych. Nie trafiaja do bibliografii.
+
+Skladnia:
+
+```markdown
+Zastosowano mechanizm proxy[^proxy] do filtrowania ruchu.
+
+[^proxy]: **Proxy** – serwer posredniczacy miedzy klientem a serwerem docelowym,
+    umozliwiajacy kontrole i modyfikacje przesylanych zadan.
+```
+
+- Etykieta `[^nazwa]` moze byc dowolnym slowem (nie musi byc liczba).
+- Definicje mozesz umiescic zaraz pod akapitem lub na koncu rozdzialu — Pandoc i tak wstawi je na dole wlasciwej strony.
+- Wiersze kontynuacji musza byc wciete o 4 spacje.
+- Numeracja przypisow jest ciagla przez caly dokument.
+
 ## Rysunki i tabele
 
 - Grafiki trzymaj w `assets/figures/`.
