@@ -141,10 +141,15 @@
 \usepackage{booktabs}
 \usepackage{longtable}
 \usepackage{array}
+% Fix: pandoc sets \LTcaptype{none} for uncaptioned longtables, but TL2025
+% longtable requires either an empty \LTcaptype or a valid counter name.
+% Define a dummy counter "none" so longtable can increment it harmlessly.
+\newcounter{none}
 
 % --- Figures ---
 \usepackage{graphicx}
 \usepackage{float}
+\floatplacement{figure}{H}
 \usepackage{caption}
 \captionsetup{
   font=small,
