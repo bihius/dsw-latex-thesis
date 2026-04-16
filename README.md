@@ -41,7 +41,7 @@ Domyślny wynik kompilacji: `output/praca_inz.pdf`.
 
 - Edytuj rozdziały w `chapters/` (pliki są łączone alfabetycznie po nazwie).
 - Uzupełnij dane w `metadata.yaml` (autor, promotor, tytuł itd.).
-- Dodawaj własne źródła do `bibliography/references.private.bib` (plik jest ignorowany przez Git) i cytuj je przez `[@klucz]`.
+- Dodawaj własne źródła do `bibliography/references.private.bib` i cytuj je przez `[@klucz]`.
 - Szczegółowe wytyczne i przykłady składni znajdziesz w `instrukcja.md`.
 
 ## Najczęściej używane polecenia
