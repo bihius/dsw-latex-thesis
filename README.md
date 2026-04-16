@@ -9,7 +9,7 @@ https://www.dsw.edu.pl/sites/dsw/files/2025-11/zd24_70.dyplomowanie_scalone_0.pd
 
 ## Dla kogo
 
-Dla studentów, którzy chcą pisać pracę inżynierską w Markdown i kompilować ją do PDF przez Pandoc.
+Dla studentów, którzy nie lubią produktów firmy Microslop lub preferują Markdown
 
 ## Zawartość repozytorium
 
