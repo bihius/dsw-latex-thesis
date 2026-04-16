@@ -1,58 +1,63 @@
-# Szablon pracy inzynierskiej DSW (wersja robocza)
+# Szablon pracy inżynierskiej DSW (wersja robocza)
 
-To repozytorium zawiera **roboczy** szablon pracy inzynierskiej przygotowany dla Uniwersytetu Dolnoslaskiego DSW we Wroclawiu.
+To repozytorium zawiera **roboczy** szablon pracy inżynierskiej dla Uniwersytetu Dolnośląskiego DSW we Wrocławiu.
 
-Uwaga: ten szablon **nie jest jeszcze oficjalnie zatwierdzonym wzorem** uczelni. Traktuj go jako punkt startowy i zawsze porownuj z aktualnymi wymaganiami promotora oraz wytycznymi wydzialu.
+> Uwaga: ten szablon **nie jest oficjalnie zatwierdzonym wzorem** uczelni. Traktuj go jako punkt startowy i zawsze porównuj z aktualnymi wymaganiami promotora oraz wytycznymi wydziału.
 
-Jest zgodny z zarządzeniem nr 70/2024 Dziekana Wydziału Studiów Stosowanych Uniwersytetu Dolnośląskiego DSW we Wrocławiu z dnia 7 października 2024 r. Link: https://www.dsw.edu.pl/sites/dsw/files/2025-11/zd24_70.dyplomowanie_scalone_0.pdf
+Szablon jest zgodny z zarządzeniem nr 70/2024 Dziekana Wydziału Studiów Stosowanych Uniwersytetu Dolnośląskiego DSW we Wrocławiu z dnia 7 października 2024 r.:  
+https://www.dsw.edu.pl/sites/dsw/files/2025-11/zd24_70.dyplomowanie_scalone_0.pdf
 
-## Dla kogo i po co
+## Dla kogo
 
-Ten szablon jest dla studentow, ktorzy chca pisac prace inzynierska w Markdown i skladac ja do PDF przez Pandoc. Repo jest publiczne i celowo nie zawiera prywatnych danych autora.
+Dla studentów, którzy chcą pisać pracę inżynierską w Markdown i kompilować ją do PDF przez Pandoc.
 
-## Co tu znajdziesz
+## Zawartość repozytorium
 
-- `metadata.yaml.example` - przykladowe metadane strony tytulowej (skopiuj do `metadata.yaml` i uzupelnij).
-- `chapters-example/` - neutralne przykladowe rozdzialy, zeby wystartowac bez pustej strony.
-- `templates/` - szablony LaTeX odpowiadajace wymaganiom formatowania.
-- `bibliography/references.bib` - przykladowa bibliografia (publiczny wzor).
-- `bibliography/references.private.bib` - Twoje zrodla (plik ignorowany przez Git).
-- `instrukcja.md` - uniwersalny przewodnik jak pisac prace i jak uzywac szablonu.
-
-## Szybki start (pierwsze uruchomienie)
-
-```bash
-cp metadata.yaml.example metadata.yaml
-mkdir -p chapters
-cp chapters-example/*.md chapters/
-make
-```
-
-Domyslny wynik builda: `output/praca_inz.pdf`.
+- `metadata.yaml.example` — przykładowe metadane strony tytułowej (skopiuj do `metadata.yaml` i uzupełnij).
+- `chapters-example/` — przykładowe rozdziały startowe.
+- `templates/` — szablony LaTeX zgodne z wymaganym formatowaniem.
+- `bibliography/references.bib` — publiczny przykład bibliografii.
+- `instrukcja.md` — przewodnik pisania i pracy z szablonem.
 
 ## Wymagania
 
 - `pandoc`
 - TeX Live / MacTeX z `xelatex`
-- opcjonalnie `make`
+- opcjonalnie: `make`
 
-## Jak dalej pracowac
+## Szybki start
 
-- Edytuj rozdzialy w `chapters/` (pliki sortuja sie alfabetycznie po nazwie).
-- Uzupelnij dane w `metadata.yaml` (autor, promotor, tytul itd.).
-- Dodawaj zrodla do `bibliography/references.private.bib` i cytuj je w tekscie przez `[@klucz]`.
-- Pelne wytyczne i przyklady skladni sa w `instrukcja.md`.
+```bash
+cp metadata.yaml.example metadata.yaml
+mkdir -p chapters output bibliography
+cp chapters-example/*.md chapters/
+touch bibliography/references.private.bib
+make
+```
+
+Domyślny wynik kompilacji: `output/praca_inz.pdf`.
+
+## Codzienna praca
+
+- Edytuj rozdziały w `chapters/` (pliki są łączone alfabetycznie po nazwie).
+- Uzupełnij dane w `metadata.yaml` (autor, promotor, tytuł itd.).
+- Dodawaj własne źródła do `bibliography/references.private.bib` (plik jest ignorowany przez Git) i cytuj je przez `[@klucz]`.
+- Szczegółowe wytyczne i przykłady składni znajdziesz w `instrukcja.md`.
+
+## Najczęściej używane polecenia
+
+```bash
+make           # buduje PDF
+make clean     # czyści wygenerowane pliki
+make debug     # generuje pośredni plik .tex
+make check     # sprawdza, czy Pandoc parsuje pliki
+make help      # pokazuje listę komend
+```
 
 ## Kompilacja bez Makefile
 
-Jesli nie chcesz uzywac `make`, mozesz budowac bezposrednio:
+Jeśli nie chcesz używać `make`, możesz uruchomić Pandoc bezpośrednio:
 
 ```bash
 pandoc --metadata-file=metadata.yaml --template=templates/dsw-thesis.latex --csl=csl/dsw-footnote.csl --pdf-engine=xelatex --citeproc --number-sections --resource-path=.:assets -o output/praca_inz.pdf chapters/*.md
 ```
-
-## Bibliografia
-
-Publiczny przyklad jest w `bibliography/references.bib`.
-Twoje prywatne zrodla wpisuj do `bibliography/references.private.bib` (plik jest w `.gitignore`).
-Makefile korzysta z ustawien w `metadata.yaml`, wiec nie musisz zmieniac zadnych flag bibliografii.
