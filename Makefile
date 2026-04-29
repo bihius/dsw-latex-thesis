@@ -15,7 +15,7 @@
 # --- Configuration ---
 PANDOC     := pandoc
 SHELL      := /bin/bash
-CHAPTERS   := $(sort $(wildcard chapters/*.md))
+CHAPTERS   := $(sort $(wildcard chapters/[0-9][0-9]-*.md))
 OUTPUT_DIR := output
 OUTPUT_PDF := $(OUTPUT_DIR)/praca_inz.pdf
 OUTPUT_TEX := $(OUTPUT_DIR)/praca_inz.tex

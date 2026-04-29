@@ -148,6 +148,24 @@
 
 % --- Figures ---
 \usepackage{graphicx}
+\makeatletter
+\newsavebox\pandoc@box
+\newcommand*\pandocbounded[1]{%
+  % Pandoc 3.9 may wrap images in \pandocbounded{...}; scale them to fit
+  % within the text block while preserving aspect ratio.
+  \sbox\pandoc@box{#1}%
+  \Gscale@div\@tempa{\textheight}{\dimexpr\ht\pandoc@box+\dp\pandoc@box\relax}%
+  \Gscale@div\@tempb{\linewidth}{\wd\pandoc@box}%
+  \ifdim\@tempb\p@<\@tempa\p@
+    \let\@tempa\@tempb
+  \fi
+  \ifdim\@tempa\p@<\p@
+    \scalebox{\@tempa}{\usebox\pandoc@box}%
+  \else
+    \usebox{\pandoc@box}%
+  \fi
+}
+\makeatother
 \usepackage{float}
 \floatplacement{figure}{H}
 \usepackage{caption}
@@ -160,6 +178,7 @@
 
 % --- Code Listings ---
 \usepackage{listings}
+\usepackage{fancyvrb}
 \lstset{
   basicstyle=\ttfamily\small,
   breaklines=true,
@@ -174,6 +193,20 @@
            {Ą}{{\k{A}}}1 {Ć}{{\'C}}1 {Ę}{{\k{E}}}1 {Ł}{{\L{}}}1
            {Ń}{{\'N}}1 {Ó}{{\'O}}1 {Ś}{{\'S}}1 {Ź}{{\'Z}}1 {Ż}{{\.Z}}1
 }
+
+% Pandoc 3.9 emits these environments/macros for syntax-highlighted code
+% blocks. Keep the styling minimal and compatible with the thesis template.
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\},fontsize=\small}
+\newenvironment{Shaded}{}{}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.80,0.13,0.13}{\textbf{#1}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.49,0.56,0.16}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textit{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.02,0.16,0.49}{#1}}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.40,0.40,0.40}{#1}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.74,0.48,0.00}{#1}}
 
 % --- Colors ---
 \usepackage{xcolor}

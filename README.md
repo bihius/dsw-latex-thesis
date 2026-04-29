@@ -59,5 +59,5 @@ make help      # pokazuje listę komend
 Jeśli nie chcesz używać `make`, możesz uruchomić Pandoc bezpośrednio:
 
 ```bash
-pandoc --metadata-file=metadata.yaml --template=templates/dsw-thesis.latex --csl=csl/dsw-footnote.csl --pdf-engine=xelatex --citeproc --number-sections --resource-path=.:assets -o output/praca_inz.pdf chapters/*.md
+pandoc --metadata-file=metadata.yaml --template=templates/dsw-thesis.latex --csl=csl/dsw-footnote.csl --pdf-engine=xelatex --citeproc --number-sections --resource-path=.:assets -o output/praca_inz.pdf chapters/[0-9][0-9]-*.md
 ```
