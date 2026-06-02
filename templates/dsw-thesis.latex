@@ -83,7 +83,13 @@
 \titleformat{\subsubsection}
   {\normalfont\normalsize\bfseries}
   {\thesubsubsection.}{0.5em}{}
-\titlespacing{\subsubsection}{0pt}{8pt}{8pt}
+\titlespacing{\subsubsection}{0pt}{10pt}{12pt}
+
+% Paragraph-level headings from Markdown ####
+\titleformat{\paragraph}[block]
+  {\normalfont\normalsize\bfseries}
+  {\theparagraph.}{0.5em}{}
+\titlespacing{\paragraph}{0pt}{10pt}{12pt}
 
 % --- Table of Contents Spacing ---
 % TOC entries: 0pt before, 5pt after

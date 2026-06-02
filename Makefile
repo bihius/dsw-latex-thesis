@@ -52,6 +52,8 @@ $(OUTPUT_PDF): $(CHAPTERS) $(METADATA) $(TEMPLATE) $(TITLEPAGE) $(CSL) | $(OUTPU
 		-o $@ \
 		$(CHAPTERS)
 	@echo "Done: $@"
+	@xattr -d com.apple.quarantine $@ 2>/dev/null || true
+	@open $@
 
 ## Create output directory
 $(OUTPUT_DIR):

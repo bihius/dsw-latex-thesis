@@ -27,3 +27,6 @@ assets/dsw_logo.jpg
 Thumbs.db
 *.swp
 *~
+_typst/
+
+figures/*
