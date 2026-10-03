@@ -28,3 +28,6 @@ Thumbs.db
 _typst/
 
 figures/*
+
+# mermaid-cli dependencies (see tools/mermaid)
+node_modules/

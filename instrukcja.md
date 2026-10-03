@@ -9,20 +9,7 @@ Ten plik opisuje uniwersalny sposob pracy z szablonem. Jest niezalezny od tematu
 - Unikaj dygresji, skracaj zdania, trzymaj sie logiki wywodu.
 - Kazda teza, definicja, wynik lub rysunek musi byc zrodlem albo Twoim wnioskiem.
 
-## Struktura rozdzialow (przyklad)
 
-1. Wstep {-}
-   - Motywacja, cel pracy, zakres, metoda, struktura dokumentu.
-2. Analiza problemu / przeglad rozwiazan
-   - Kontekst, porownanie podejsc, analiza literatury.
-3. Projekt rozwiazania
-   - Wymagania, architektura, uzasadnienie decyzji projektowych.
-4. Implementacja
-   - Kluczowe elementy wykonania, dobory technologii, najwazniejsze fragmenty.
-5. Testy / weryfikacja
-   - Metody, przypadki, wyniki, interpretacja.
-6. Podsumowanie {-}
-   - Wnioski, ograniczenia, mozliwe dalsze prace.
 
 ## Jak pracowac z rozdzialami
 

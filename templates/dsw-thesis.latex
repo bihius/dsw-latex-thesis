@@ -134,6 +134,9 @@
 \setlength{\footnotemargin}{0pt}
 \renewcommand{\footnotelayout}{\fontsize{10pt}{12pt}\selectfont}
 
+% Never split a single footnote across pages (continuation line appears without number)
+\interfootnotelinepenalty=10000
+
 % Single spacing in footnotes (use \setstretch to avoid extra vertical space)
 \let\oldfootnote\footnote
 \renewcommand{\footnote}[1]{%

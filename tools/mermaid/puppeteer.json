@@ -1,0 +1,4 @@
+{
+  "executablePath": "/Applications/Chromium.app/Contents/MacOS/Chromium",
+  "args": ["--no-sandbox"]
+}

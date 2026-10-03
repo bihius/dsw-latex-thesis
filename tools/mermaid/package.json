@@ -1,0 +1,8 @@
+{
+  "name": "thesis-mermaid",
+  "private": true,
+  "description": "Renders mermaid code blocks for the pandoc build (see filters/mermaid.lua)",
+  "dependencies": {
+    "@mermaid-js/mermaid-cli": "^11.4.2"
+  }
+}

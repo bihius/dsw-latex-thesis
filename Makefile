@@ -23,6 +23,7 @@ METADATA   := metadata.yaml
 TEMPLATE   := templates/dsw-thesis.latex
 TITLEPAGE  := templates/titlepage.latex
 CSL        := csl/dsw-footnote.csl
+MERMAID_FILTER := filters/mermaid.lua
 
 # --- Pandoc Common Flags ---
 PANDOC_FLAGS := \
@@ -30,6 +31,7 @@ PANDOC_FLAGS := \
 	--template=$(TEMPLATE) \
 	--csl=$(CSL) \
 	--pdf-engine=xelatex \
+	--lua-filter=$(MERMAID_FILTER) \
 	--citeproc \
 	--number-sections \
 	--resource-path=.:assets
@@ -46,7 +48,7 @@ export PATH := /Library/TeX/texbin:$(PATH)
 ## Build the PDF thesis
 all: $(OUTPUT_PDF)
 
-$(OUTPUT_PDF): $(CHAPTERS) $(METADATA) $(TEMPLATE) $(TITLEPAGE) $(CSL) | $(OUTPUT_DIR)
+$(OUTPUT_PDF): $(CHAPTERS) $(METADATA) $(TEMPLATE) $(TITLEPAGE) $(CSL) $(MERMAID_FILTER) | $(OUTPUT_DIR)
 	@echo "Building PDF..."
 	$(PANDOC) $(PANDOC_FLAGS) \
 		-o $@ \
@@ -60,7 +62,7 @@ $(OUTPUT_DIR):
 	mkdir -p $(OUTPUT_DIR)
 
 ## Generate intermediate .tex for debugging
-debug: $(CHAPTERS) $(METADATA) $(TEMPLATE) $(TITLEPAGE) $(CSL) | $(OUTPUT_DIR)
+debug: $(CHAPTERS) $(METADATA) $(TEMPLATE) $(TITLEPAGE) $(CSL) $(MERMAID_FILTER) | $(OUTPUT_DIR)
 	@echo "Generating .tex file..."
 	$(PANDOC) $(PANDOC_FLAGS) \
 		-s \
@@ -71,7 +73,7 @@ debug: $(CHAPTERS) $(METADATA) $(TEMPLATE) $(TITLEPAGE) $(CSL) | $(OUTPUT_DIR)
 ## Remove all generated files
 clean:
 	@echo "Cleaning output..."
-	rm -rf $(OUTPUT_DIR)/*.pdf $(OUTPUT_DIR)/*.tex $(OUTPUT_DIR)/*.log
+	rm -rf $(OUTPUT_DIR)/*.pdf $(OUTPUT_DIR)/*.tex $(OUTPUT_DIR)/*.log $(OUTPUT_DIR)/mermaid
 	@echo "Done."
 
 ## Auto-rebuild on file changes (requires: brew install fswatch)
